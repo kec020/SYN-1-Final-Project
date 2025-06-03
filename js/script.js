@@ -28,19 +28,19 @@ function update() {
     frame3.style.transform = `translateY(${-scrollTop * 0.1}px)`;
 
     // Frame 1 fade out during first 1/3 viewportHeight
-    if (scrollTop < viewportHeight / 3) {
-        const ratio = scrollTop / (viewportHeight / 3);
+    if (scrollTop < viewportHeight / 2) {
+        const ratio = scrollTop / (viewportHeight / 2);
         frame1.style.opacity = 1 - ratio;
         frame2.style.opacity = ratio;
         frame3.style.opacity = 0;
-    } 
+    }
     // Frame 2 active after frame 1 fades
-    else if (scrollTop < viewportHeight * (1 + 1/3)) {
-        const ratio = (scrollTop - viewportHeight / 3) / (viewportHeight * (1/3));
+    else if (scrollTop < viewportHeight * (1 + 2 / 3)) {
+        const ratio = (scrollTop - viewportHeight / 2) / (viewportHeight * (3 / 7));
         frame1.style.opacity = 0;
         frame2.style.opacity = 1 - ratio;
         frame3.style.opacity = ratio;
-    } 
+    }
     // Frame 3 fully visible after
     else {
         frame1.style.opacity = 0;
